@@ -2,91 +2,136 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div>
-      <section className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">日本の税金可視化プロジェクト</h1>
-        <p className="text-xl max-w-3xl mx-auto">
-          このウェブサイトでは、日本の税金の流れと使い道を視覚的に理解できるように
-          データを可視化しています。国民の税金がどこからきて、どのように使われているのかを
-          探索してください。
-        </p>
+    <div className="fade-in">
+      <section className="text-center mb-16 relative">
+        {/* 背景の装飾要素 */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full opacity-20 transform translate-x-1/3 -translate-y-1/3"></div>
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-green-100 rounded-full opacity-20 transform -translate-x-1/3 translate-y-1/3"></div>
+          <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-yellow-100 rounded-full opacity-10 transform -translate-x-1/2 -translate-y-1/2"></div>
+        </div>
+        
+        <div className="relative z-10">
+          <h1 className="text-5xl font-bold mb-8 mt-8">日本の税金可視化プロジェクト</h1>
+          <p className="text-xl max-w-3xl mx-auto text-gray-600 bg-white bg-opacity-70 p-6 rounded-lg shadow-sm">
+            このウェブサイトでは、日本の税金の流れと使い道を視覚的に理解できるように
+            データを可視化しています。国民の税金がどこからきて、どのように使われているのかを
+            探索してください。
+          </p>
+        </div>
+        
+        {/* 統計ハイライト */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
+          <div className="stat-card">
+            <p className="text-sm text-gray-500 mb-1">令和6年度 国の予算総額</p>
+            <p className="text-3xl font-bold text-blue-600">112.6兆円</p>
+          </div>
+          <div className="stat-card border-green-500">
+            <p className="text-sm text-gray-500 mb-1">年間税収</p>
+            <p className="text-3xl font-bold text-green-600">69.4兆円</p>
+          </div>
+          <div className="stat-card border-amber-500">
+            <p className="text-sm text-gray-500 mb-1">社会保障費</p>
+            <p className="text-3xl font-bold text-amber-600">38.9兆円</p>
+          </div>
+        </div>
       </section>
+      
+      <h2 className="text-center text-3xl font-bold mb-8 relative">
+        データで見る日本の税金
+        <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mt-2 rounded-full"></div>
+      </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <Link href="/tax-revenue" className="block">
-          <div className="card transition-transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-blue-500 relative">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <Link href="/tax-revenue" className="block group">
+          <div className="card transition-all duration-300 hover:shadow-xl border border-gray-100 group-hover:border-blue-100 h-full flex flex-col">
             {/* アイコン: グラフ */}
-            <div className="absolute top-4 right-4 text-blue-500">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-                <line x1="3" y1="20" x2="21" y2="20"></line>
-              </svg>
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 group-hover:bg-blue-200 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                  <line x1="3" y1="20" x2="21" y2="20"></line>
+                </svg>
+              </div>
             </div>
             
-            <h2 className="text-center text-primary-dark mb-3">税収推移</h2>
-            <p className="mb-4">
+            <h2 className="text-center text-blue-700 text-2xl mb-4">税収推移</h2>
+            <p className="mb-6 px-2 text-gray-600 flex-grow">
               過去10年間の日本の税収推移を税目別に見ることができます。所得税、法人税、消費税などの
               推移から、日本の財政状況を理解しましょう。
             </p>
             <div className="text-center mt-auto">
-              <span className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+              <span className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all shadow-md group-hover:shadow-lg">
                 詳細を見る →
               </span>
             </div>
           </div>
         </Link>
 
-        <Link href="/tax-usage" className="block">
-          <div className="card transition-transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-blue-500 relative">
+        <Link href="/tax-usage" className="block group">
+          <div className="card transition-all duration-300 hover:shadow-xl border border-gray-100 group-hover:border-green-100 h-full flex flex-col">
             {/* アイコン: 円グラフ */}
-            <div className="absolute top-4 right-4 text-blue-500">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
-                <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
-              </svg>
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 group-hover:bg-green-200 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                  <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                </svg>
+              </div>
             </div>
             
-            <h2 className="text-center text-primary-dark mb-3">税金の使い道</h2>
-            <p className="mb-4">
+            <h2 className="text-center text-green-700 text-2xl mb-4">税金の使い道</h2>
+            <p className="mb-6 px-2 text-gray-600 flex-grow">
               国の予算はどのように使われているのでしょうか？社会保障、公共事業、教育など
               分野別の支出割合と詳細を確認できます。
             </p>
             <div className="text-center mt-auto">
-              <span className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+              <span className="inline-block bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg hover:from-green-600 hover:to-green-700 transition-all shadow-md group-hover:shadow-lg">
                 詳細を見る →
               </span>
             </div>
           </div>
         </Link>
 
-        <Link href="/tax-flow" className="block">
-          <div className="card transition-transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-blue-500 relative">
+        <Link href="/tax-flow" className="block group">
+          <div className="card transition-all duration-300 hover:shadow-xl border border-gray-100 group-hover:border-amber-100 h-full flex flex-col">
             {/* アイコン: フロー */}
-            <div className="absolute top-4 right-4 text-blue-500">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 3v12"></path>
-                <path d="M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-                <path d="M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-                <path d="M15 6a9 9 0 0 0-9 9"></path>
-                <path d="M18 15h-6"></path>
-                <path d="M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-              </svg>
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 group-hover:bg-amber-200 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 3v12"></path>
+                  <path d="M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                  <path d="M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                  <path d="M15 6a9 9 0 0 0-9 9"></path>
+                  <path d="M18 15h-6"></path>
+                  <path d="M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                </svg>
+              </div>
             </div>
             
-            <h2 className="text-center text-primary-dark mb-3">税金の流れ</h2>
-            <p className="mb-4">
+            <h2 className="text-center text-amber-700 text-2xl mb-4">税金の流れ</h2>
+            <p className="mb-6 px-2 text-gray-600 flex-grow">
               国税と地方税の割合、一般会計と特別会計の関係など、日本の税金システムの
               全体像を把握することができます。
             </p>
             <div className="text-center mt-auto">
-              <span className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+              <span className="inline-block bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-lg hover:from-amber-600 hover:to-amber-700 transition-all shadow-md group-hover:shadow-lg">
                 詳細を見る →
               </span>
             </div>
           </div>
         </Link>
+      </div>
+      
+      <div className="highlight mx-auto max-w-4xl p-6 mb-16">
+        <h3 className="font-bold text-xl mb-3 text-gray-800">なぜ税金を理解することが大切なのか</h3>
+        <p className="text-gray-700">
+          私たちの生活を支える社会インフラやサービスは、税金によって賄われています。税金の仕組みや使い道を理解することで、
+          社会の一員として、より良い政策決定や議論に参加することができます。このプロジェクトは、難解になりがちな税金の情報を
+          視覚的に分かりやすく提供し、誰もが税金について考えるきっかけを作ることを目指しています。
+        </p>
       </div>
     </div>
   );
