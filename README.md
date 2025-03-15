@@ -2,6 +2,8 @@
 
 日本の税金の流れと使い道を視覚的に理解するためのウェブアプリケーションです。このプロジェクトでは税収の推移、予算の内訳、税金の流れなどを、グラフやチャートを使って分かりやすく表示します。
 
+**デモ**: [https://tax-project-ten.vercel.app/](https://tax-project-ten.vercel.app/)
+
 ## 概要
 
 このプロジェクトの目的は、一般の方々に日本の税金制度と予算配分をより理解しやすく伝えることです。データの可視化により、以下のような点を明らかにしています：
@@ -36,6 +38,12 @@ tax_project/
 - **フロントエンド**: Next.js, React, Recharts, Tailwind CSS
 - **データ処理**: Python, pandas, matplotlib
 - **データ形式**: JSON, CSV
+- **ホスティング**: Vercel
+
+## デプロイ情報
+
+このプロジェクトは[Vercel](https://vercel.com/)を使用して公開されています。デモサイトは以下のURLからアクセスできます：
+- [https://tax-project-ten.vercel.app/](https://tax-project-ten.vercel.app/)
 
 ## 貢献方法
 
@@ -84,7 +92,7 @@ npm run dev
 
 ## コンタクト
 
-質問や提案がある場合は、Issueを作成してください
+質問や提案がある場合は、Issueを作成してください。
 
 ## 謝辞
 
