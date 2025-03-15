@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+h1 {
+  @apply text-3xl font-bold mb-6;
+}
+
+h2 {
+  @apply text-2xl font-semibold mb-4;
+}
+
+h3 {
+  @apply text-xl font-medium mb-3;
+}
+
+p {
+  @apply mb-4;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md p-6 mb-6;
+}
+
+.section {
+  @apply mb-12;
+}
