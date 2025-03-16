@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Script from 'next/script';
 
 export default function Header() {
   const pathname = usePathname();
@@ -9,7 +10,22 @@ export default function Header() {
   };
   
   return (
-    <header className="bg-gradient-to-r from-blue-700 to-blue-900 text-white p-6 shadow-lg">
+    <>
+      {/* Google Analytics */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-1PTHWR9QEB"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-1PTHWR9QEB');
+        `}
+      </Script>
+      
+      <header className="bg-gradient-to-r from-blue-700 to-blue-900 text-white p-6 shadow-lg">
       <div className="container mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <Link href="/" className="text-2xl font-bold mb-6 sm:mb-0 flex items-center transition-transform hover:scale-105">
@@ -67,5 +83,6 @@ export default function Header() {
         </div>
       </div>
     </header>
+    </>
   );
 }
