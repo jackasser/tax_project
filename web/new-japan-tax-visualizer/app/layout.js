@@ -14,6 +14,9 @@ export const metadata = {
   title: '日本の税金可視化プロジェクト',
   description: '日本の税金の流れと使い道を可視化するウェブアプリケーション',
   keywords: '税金, 可視化, 予算, 財政, 日本, データ分析, 消費税, 所得税',
+  verification: {
+    google: 'dISy2zJ81XUmkPDnYOgYw9RW-y-FVVXNUwNBE7SSP94', // 例: 'abcdefghijklmnopqrst'
+  },
 };
 
 export default function RootLayout({ children }) {
