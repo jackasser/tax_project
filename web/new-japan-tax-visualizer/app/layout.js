@@ -2,6 +2,8 @@ import './globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
+import { generateWebsiteSchema } from './jsonld';
 
 // フォントの設定
 const inter = Inter({
@@ -12,10 +14,32 @@ const inter = Inter({
 
 export const metadata = {
   title: '日本の税金可視化プロジェクト',
-  description: '日本の税金の流れと使い道を可視化するウェブアプリケーション',
-  keywords: '税金, 可視化, 予算, 財政, 日本, データ分析, 消費税, 所得税',
+  description: '日本の税金の流れと使い道を可視化するウェブアプリケーション。税収推移、予算配分、税金の流れをグラフとデータで分かりやすく解説します。',
+  keywords: '税金, 可視化, 予算, 財政, 日本, データ分析, 消費税, 所得税, 税収, 使い道, 納税, 国税, 地方税',
   verification: {
-    google: 'dISy2zJ81XUmkPDnYOgYw9RW-y-FVVXNUwNBE7SSP94', // 例: 'abcdefghijklmnopqrst'
+    google: 'dISy2zJ81XUmkPDnYOgYw9RW-y-FVVXNUwNBE7SSP94',
+  },
+  openGraph: {
+    title: '日本の税金可視化プロジェクト',
+    description: '日本の税金の流れと使い道を可視化するウェブアプリケーション',
+    url: 'https://japan-tax-visualizer.vercel.app',
+    siteName: '日本の税金可視化プロジェクト',
+    images: [
+      {
+        url: 'https://japan-tax-visualizer.vercel.app/og-image.png', // 実際の画像パスに更新してください
+        width: 1200,
+        height: 630,
+        alt: '日本の税金可視化プロジェクト',
+      }
+    ],
+    locale: 'ja_JP',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '日本の税金可視化プロジェクト',
+    description: '日本の税金の流れと使い道を可視化するウェブアプリケーション',
+    images: ['https://japan-tax-visualizer.vercel.app/og-image.png'], // OGPと同じ画像を使用
   },
 };
 
@@ -25,6 +49,14 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="canonical" href="https://japan-tax-visualizer.vercel.app" />
+        <Script
+          id="schema-website"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateWebsiteSchema())
+          }}
+        />
       </head>
       <body className="flex flex-col min-h-screen bg-gray-50">
         {/* 背景の装飾 */}

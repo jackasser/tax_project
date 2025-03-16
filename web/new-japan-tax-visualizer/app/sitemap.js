@@ -4,19 +4,18 @@
  */
 
 // サイトのベースURLを設定（デプロイ後の実際のURLに変更してください）
-const BASE_URL = 'https://japan-tax-visualizer.vercel.app'; // 実際のVercelデプロイURLに変更してください
+const BASE_URL = 'https://japan-tax-visualizer.vercel.app';
 
 export default async function sitemap() {
   // 現在の日付を取得して最終更新日として使用
   const currentDate = new Date().toISOString();
   
   // サイト内の全ページを定義
-  // 注: 新しいページを追加する場合はここに追加してください
   const routes = [
     {
       url: `${BASE_URL}`,
       lastModified: currentDate,
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
@@ -36,6 +35,20 @@ export default async function sitemap() {
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    // 各ページのJSON-LDスキーマに対応するためのエントリー
+    {
+      url: `${BASE_URL}/jsonld`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.1,
+    },
+    // ローディングコンポーネント
+    {
+      url: `${BASE_URL}/loading`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.1,
     },
   ];
 
